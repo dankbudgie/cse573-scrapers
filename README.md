@@ -1,5 +1,6 @@
 # cse573-scrapers
-Scrapers for CSE573, implemented using Python and Scrapy.
+Scrapers for CSE573, implemented using Python and Scrapy.  
+So far, ebay has been implemented. It scrapes the results from searching for "graphics cards."
 
 Prerequisites
 - Python 3
