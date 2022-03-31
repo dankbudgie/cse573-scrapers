@@ -20,6 +20,6 @@ cd project_name
 Add my ebay spider file in the spiders folder.
 Run the scraper.
 ```
-scrapy crawl ebay output.csv
+scrapy crawl ebay -O output.csv
 ```
 The output file can be formatted in .csv or .json.
