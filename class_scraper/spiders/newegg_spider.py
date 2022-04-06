@@ -1,3 +1,5 @@
+from ast import Pass
+from distutils.spawn import spawn
 import scrapy
 
 class NeweggSpider(scrapy.Spider):
@@ -6,10 +8,16 @@ class NeweggSpider(scrapy.Spider):
 
     def parse(self, response):
         for products in response.css('div.item-cell'):
-            yield {
-                'name': products.css('a.item-title::text').get(),
-                'price': products.xpath('div[2]/ul/li[3]/strong').get(),
-            }
+            try:
+                intermediate_price = products.css('li.price-current').get().replace('<li class="price-current"><span class="price-current-label"></span>$<strong>', '').replace('</strong><sup>','')
+                s_price = intermediate_price.split('<', 1)
+            except:
+                pass
+            finally:
+                yield {
+                    'name': products.css('a.item-title::text').get(),
+                    'price': s_price[0],
+                }
         
         next_page = response.css('a.pagination__next.icon-link').attrib['href']
         if next_page is not None:
