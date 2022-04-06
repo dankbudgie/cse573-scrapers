@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'ebayscraper'
+BOT_NAME = 'class_scraper'
 
-SPIDER_MODULES = ['ebayscraper.spiders']
-NEWSPIDER_MODULE = 'ebayscraper.spiders'
+SPIDER_MODULES = ['class_scraper.spiders']
+NEWSPIDER_MODULE = 'class_scraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
