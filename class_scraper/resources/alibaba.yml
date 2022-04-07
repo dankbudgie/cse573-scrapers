@@ -1,0 +1,14 @@
+products:
+    css: div.list-no-v2-outter
+    xpath: null
+    multiple: true
+    type: Text
+    children:
+        name:
+            css: p.elements-title-normal__content
+            xpath: null
+            type: Text
+        price:
+            css: span.elements-offer-price-normal__promotion
+            xpath: null
+            type: Text
