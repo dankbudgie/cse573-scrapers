@@ -1,0 +1,14 @@
+Products:
+    css: div.img-switcher-parent
+    xpath: null
+    multiple: true
+    type: Text
+    children:
+        Name:
+            css: p.elements-title-normal__content
+            xpath: null
+            type: Text
+        Price:
+            css: p.elements-offer-price-normal
+            xpath: null
+            type: Text
