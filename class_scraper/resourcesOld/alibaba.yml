@@ -1,14 +1,14 @@
-Products:
-    css: div.img-switcher-parent
+products:
+    css: div.list-no-v2-outter
     xpath: null
     multiple: true
     type: Text
     children:
-        Name:
+        name:
             css: p.elements-title-normal__content
             xpath: null
             type: Text
-        Price:
-            css: p.elements-offer-price-normal
+        price:
+            css: span.elements-offer-price-normal__promotion
             xpath: null
             type: Text
