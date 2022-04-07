@@ -1,6 +1,6 @@
 # cse573-scrapers
 Scrapers for CSE573, implemented using Python and Scrapy.  
-So far, ebay and alibaba has been implemented. It scrapes the results from the results page searching for "computers" or "graphics cards."
+So far, ebay, alibaba, and newegg have been implemented. It scrapes the results from the results page searching for "computers" or "graphics cards."
 
 Prerequisites
 - Python 3
