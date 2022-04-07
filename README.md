@@ -1,6 +1,6 @@
 # cse573-scrapers
 Scrapers for CSE573, implemented using Python and Scrapy.  
-So far, ebay has been implemented. It scrapes the results from searching for "graphics cards."
+So far, ebay and alibaba has been implemented. It scrapes the results from the results page searching for "computers" or "graphics cards."
 
 Prerequisites
 - Python 3
@@ -18,9 +18,8 @@ scrapy startproject project_name
 cd project_name
 ```
 
-Add my ebay spider file in the spiders folder.
-Run the scraper.
+Add our spider files in the spiders folder and run the scraper.
 ```
-scrapy crawl ebay -O output.csv
+scrapy crawl spider -O output.csv
 ```
 The output file can be formatted in .csv or .json.
