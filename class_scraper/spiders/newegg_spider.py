@@ -1,15 +1,12 @@
-from ast import Pass
-from distutils.spawn import spawn
 import scrapy
 import os
 from scrapy.http import Request
 import re
-from selectorlib import Extractor
 
 class NeweggSpider(scrapy.Spider):
     name = 'newegg'
     start_urls = ['https://www.newegg.com/p/pl?d=computers&page=1']
-    max_pages = 5
+    max_pages = 1000
 
     def parse(self, response):
         for products in response.css('div.item-cell'):
