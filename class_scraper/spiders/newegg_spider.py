@@ -1,10 +1,15 @@
 from ast import Pass
 from distutils.spawn import spawn
 import scrapy
+import os
+from scrapy.http import Request
+import re
+from selectorlib import Extractor
 
 class NeweggSpider(scrapy.Spider):
     name = 'newegg'
-    start_urls = ['https://www.newegg.com/p/pl?d=computers']
+    start_urls = ['https://www.newegg.com/p/pl?d=computers&page=1']
+    max_pages = 5
 
     def parse(self, response):
         for products in response.css('div.item-cell'):
@@ -19,6 +24,12 @@ class NeweggSpider(scrapy.Spider):
                     'price': s_price[0],
                 }
         
-        next_page = response.css('a.pagination__next.icon-link').attrib['href']
-        if next_page is not None:
-            yield response.follow(next_page, callback=self.parse)
+        if '&page=' not in response.url and self.max_pages>=2:
+            yield Request(response.request.url+"&page=2")
+        else:
+            url = response.request.url
+            current_page_no = re.findall('page=(\d+)',url)[0]
+            next_page_no = int(current_page_no)+1
+            url = re.sub('(^.*?&page\=)(\d+)(.*$)',rf"\g<1>{next_page_no}\g<3>",url)
+            if next_page_no <= self.max_pages:
+                yield Request(url,callback=self.parse)
